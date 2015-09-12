@@ -1,0 +1,31 @@
+////////////////////////////
+///
+/// Menu Component Styles
+///
+////////////////////////////
+
+$menu-height : rem-calc(40);
+
+.menu {
+    border-top      : 1px solid $gray--100;
+    border-bottom   : 1px solid $gray--100;
+}
+
+.menu-item__wrapper {
+    display         : flex;
+    justify-content : center;
+    align-content   : center;
+    max-width       : rem-calc(320);
+    margin          : 0 auto;
+}
+
+.menu-item {
+    flex-grow   : 1;
+    text-align  : center;
+    line-height : $menu-height;
+
+    &.active {
+        border-bottom : 2px solid $primary;
+    }
+
+}

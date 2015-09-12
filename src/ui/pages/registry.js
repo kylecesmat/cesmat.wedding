@@ -1,15 +1,15 @@
 import React from "react";
 import Page  from "../components/page/page";
 
-let HomePage = React.createClass({
+let RegistryPage = React.createClass({
 
     render() {
         return (
-            <Page name='home'>
-                Homepage
+            <Page name='registry'>
+                Registry
             </Page>
         );
     }
 });
 
-export default HomePage;
+export default RegistryPage;

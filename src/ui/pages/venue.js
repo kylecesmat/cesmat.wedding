@@ -1,4 +1,4 @@
-import React from "react/addons";
+import React from "react";
 import Page  from "../components/page/page";
 
 let VenuePage = React.createClass({

@@ -26,7 +26,9 @@ let Menu = React.createClass({
     render() {
         return (
             <div className='menu'>
-                {this.renderMenu()}
+                <div className='menu-item__wrapper'>
+                    {this.renderMenu()}
+                </div>
             </div>
         );
     }

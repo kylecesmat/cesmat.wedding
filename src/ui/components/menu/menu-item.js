@@ -12,9 +12,7 @@ let MenuItem = React.createClass({
 
     render() {
         return (
-            <div className='menu-item' key={this.props.key}>
-                <Link to={this.props.route}>{this.props.label}</Link>
-            </div>
+            <Link className='menu-item' key={this.props.key} to={this.props.route}>{this.props.label}</Link>
         );
     }
 });

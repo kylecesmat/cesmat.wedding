@@ -6,6 +6,14 @@ let MenuItems = [
     {
         label : 'Venue',
         route : 'venue'
+    },
+    {
+        label : 'RSVP',
+        route : 'rsvp'
+    },
+    {
+        label : 'Registry',
+        route : 'registry'
     }
 ];
 

@@ -1,6 +1,5 @@
 // imports
 @import './settings';
-@import './colors';
 
 // utilities
 @import './utilities/mixins';
@@ -13,6 +12,11 @@
 @import "./bourbon/functions/shade";
 @import "./bourbon/functions/tint";
 @import "./bourbon/css3/animation";
+
+@import './colors';
+
+//site
+@import './site/layout';
 
 // components
 @import './components/menu';

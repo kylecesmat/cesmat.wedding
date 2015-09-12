@@ -1,0 +1,12 @@
+////////////////////////////
+///
+/// Site Layout Styles
+///
+////////////////////////////
+
+
+.container {
+    max-width : $container-lg;
+    padding   : rem-calc(10);
+    margin    : 0 auto;
+}

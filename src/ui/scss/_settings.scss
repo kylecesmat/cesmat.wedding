@@ -19,8 +19,8 @@ $column-count    : 12 !default;
 $column-selector : '.' !default;
 $offset-modifier : 'offset' !default;
 
-$gutter-width        : 1rem !default;
-$outer-margin        : 2rem !default;
+$gutter-width        : 1em !default;
+$outer-margin        : 2em !default;
 $gutter-compensation : (($gutter-width / 2) * -1) !default;
 $half-gutter-width   : ($gutter-width / 2) !default;
 
@@ -29,9 +29,9 @@ $viewport-sm : #{$media-small} !default;
 $viewport-md : #{$media-medium} !default;
 $viewport-lg : #{$media-large} !default;
 
-$container-sm : #{$media-small} + $gutter-width !default;
-$container-md : #{$media-medium} + $gutter-width !default;
-$container-lg : #{$media-large} + $gutter-width !default;
+$container-sm : #{$media-small + $gutter-width} !default;
+$container-md : #{$media-medium + $gutter-width} !default;
+$container-lg : #{$media-large + $gutter-width} !default;
 
 $xs : 'xsmall' !default;
 $sm : 'small'  !default;
