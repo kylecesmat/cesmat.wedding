@@ -9,6 +9,6 @@ export default (
   <Route name="App" path="/" handler={App}>
     <Route name="home" path="/home" handler={HomePage} />
     <Route name="venue" path="/venue" handler={VenuePage} />
-    <Redirect from="/" to="HomePage" />
+    <Redirect from="/" to="home" />
   </Route>
 );
