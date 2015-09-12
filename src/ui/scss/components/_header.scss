@@ -1,0 +1,24 @@
+////////////////////////////
+///
+/// Header Component Styles
+///
+////////////////////////////
+
+.header {
+    position   : relative;
+    width      : 100%;
+    overflow   : hidden;
+    max-height : rem-calc(300);
+
+    img {
+        max-width : 100%;
+        height    : auto;
+    }
+}
+
+.header__message {
+    @include absolute(middle);
+    width      : 100%;
+    text-align : center;
+    color      : $white;
+}
