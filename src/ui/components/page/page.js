@@ -6,7 +6,10 @@ let Page = React.createClass({
     },
 
     render() {
-        let classes = 'page--' + this.props.name;
+        let classes = [
+            'page',
+            'page--' + this.props.name
+        ].join(' ').split();
 
         return (
             <div className={classes}>

@@ -19,5 +19,9 @@
 @import './site/layout';
 
 // components
+@import './components/typography/fonts';
+@import './components/typography/headings';
+@import './components/typography/inline-elements';
 @import './components/header';
+@import './components/footer';
 @import './components/menu';

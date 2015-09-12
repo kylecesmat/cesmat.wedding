@@ -4,9 +4,18 @@
 ///
 ////////////////////////////
 
+.app {
+    display        : flex;
+    flex-direction : column;
+    height         : 100vh;
+}
 
 .container {
     max-width : $container-lg;
     padding   : rem-calc(10);
     margin    : 0 auto;
+}
+
+.page {
+    flex : 1 0 auto;
 }
