@@ -7,7 +7,6 @@
 $menu-height : rem-calc(40);
 
 .menu {
-    border-top      : 1px solid $gray--100;
     border-bottom   : 1px solid $gray--100;
 }
 
@@ -20,12 +19,16 @@ $menu-height : rem-calc(40);
 }
 
 .menu-item {
-    flex-grow   : 1;
-    text-align  : center;
-    line-height : $menu-height;
+    flex-grow       : 1;
+    border-bottom   : 2px solid transparent;
+    text-align      : center;
+    line-height     : $menu-height;
+    text-decoration : none !important;
+    transition      : border-bottom 250ms ease;
 
     &.active {
         border-bottom : 2px solid $primary;
+        transition    : border-bottom 250ms ease;
     }
 
 }
