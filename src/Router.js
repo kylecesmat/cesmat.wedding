@@ -7,8 +7,8 @@ import VenuePage from "./ui/pages/venue";
 
 export default (
   <Route name="App" path="/" handler={App}>
-    <Route name="HomePage" path="home" handler={HomePage} />
-    <Route name="VenuePage" path="venue" handler={VenuePage} />
+    <Route name="home" path="/home" handler={HomePage} />
+    <Route name="venue" path="/venue" handler={VenuePage} />
     <Redirect from="/" to="HomePage" />
   </Route>
 );

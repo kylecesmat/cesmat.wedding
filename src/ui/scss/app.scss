@@ -1,5 +1,13 @@
-*,
-html,
-body {
-    background-color : blue;
-}
+// imports
+@import './settings';
+@import './colors';
+
+// bourbon imports
+@import "./bourbon/functions/px-to-em";
+@import "./bourbon/functions/px-to-rem";
+@import "./bourbon/functions/shade";
+@import "./bourbon/functions/tint";
+@import "./bourbon/css3/animation";
+
+// components
+@import './components/menu';

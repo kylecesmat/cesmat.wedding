@@ -1,7 +1,7 @@
 var webpack      = require('webpack');
 var path         = require('path');
 var npmPath      = path.resolve(__dirname, 'node_modules');
-var autoprefixer = require('autoprefixer-core');
+var autoprefixer = require('autoprefixer');
 var config       = {
     sassOptions  : (
         '?outputStyle=nested&includePaths[]=' + npmPath
@@ -31,12 +31,12 @@ module.exports = {
     loaders: [
         {
             test    : /\.scss$/,
-            loader  : 'style!css!postcss!sass' + config.sassOptions,
+            loader  : 'style!css-loader!postcss!sass-loader' + config.sassOptions,
             include : /scss/
         },
         {
-            test   : /\.css$/,
-            loader : 'style-loader!css-loader'
+            test    : /\.css$/,
+            loader  : 'style!css-loader!postcss'
         },
         {
             test   : /\.gif$/,

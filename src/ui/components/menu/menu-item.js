@@ -1,5 +1,5 @@
 import React from 'react';
-import Link  from 'react-router';
+let Link = require('react-router').Link;
 
 let MenuItem = React.createClass({
     displayName : 'MenuItem',
