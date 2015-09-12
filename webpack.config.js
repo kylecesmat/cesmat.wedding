@@ -15,9 +15,9 @@ module.exports = {
     ],
 
     output: {
-        path       : path.resolve(__dirname, "public/static/build/"),
+        path       : path.resolve(__dirname, "public/js/"),
         filename   : "main.js",
-        publicPath : "static/build/"
+        publicPath : "js/"
     },
 
     module: {
@@ -61,7 +61,6 @@ module.exports = {
             test   : /\.jsx?$/,
             loader : "react-hot!babel", exclude: [/node_modules/, /public/]
         },
-
         {
             test   : /\.json$/,
             loader : "json-loader"
