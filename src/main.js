@@ -1,21 +1,11 @@
-import React   from "react/addons";
-import Fluxxor from "fluxxor";
-import stores  from "./stores/";
-import actions from "./actions/";
-let flux = new Fluxxor.Flux(stores, actions);
-
+import React  from "react/addons";
+import flux   from "./flux";
 import Router from "react-router";
 import routes from "./Router";
 
 // debugging
 window.React = React; /* To enable Chrome react plugin */
-window.flux  = flux;
-
-flux.on("dispatch", (type, payload) => {
-    if (console && console.log) {
-        console.log("[Dispatch]", type, payload);
-    }
-});
+React.initializeTouchEvents(true);
 
 // mount app
 document.addEventListener("DOMContentLoaded", () => {
