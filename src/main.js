@@ -1,11 +1,20 @@
-import React  from "react/addons";
-import flux   from "./flux";
+let React          = require('react');
+let BatchedUpdates = require('react/lib/ReactUpdates').batchedUpdates;
+
 import Router from "react-router";
 import routes from "./Router";
 
-// debugging
+let Flux   = require('./flux');
+
 window.React = React; /* To enable Chrome react plugin */
 React.initializeTouchEvents(true);
+
+let flux        = new Flux();
+let oldDispatch = flux.dispatcher.dispatch.bind(flux.dispatcher);
+
+flux.dispatcher.dispatch = action => new BatchedUpdates(() => {
+    oldDispatch(action);
+});
 
 // mount app
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,3 +22,5 @@ document.addEventListener("DOMContentLoaded", () => {
         React.render(<Handler flux={flux} />, document.body);
     });
 });
+
+

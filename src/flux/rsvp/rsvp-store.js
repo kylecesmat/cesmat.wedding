@@ -2,29 +2,25 @@ import Fluxxor from "fluxxor";
 import C       from "../constants";
 
 let RSVPStore = Fluxxor.createStore({
-    init()
-    {
+    init() {
         this._data = [];
     },
 
-    initalize()
-    {
+    initialize() {
         this.init();
 
         this.bindActions(
-            C.FETCH_DATA_SUCCESS, this.handleRecieveDataSuccess
+          C.SERVER.FETCH_DATA_SUCCESS, this.handleReceiveDataSuccess
         );
     },
 
-    // Getter
-    getData()
-    {
+    /*==========  Getters  ==========*/
+    getRepos() {
         return JSON.parse(JSON.stringify(this._data));
     },
 
-    // Handler
-    handleRecieveDataSuccess(data)
-    {
+    /*==========  handlers  ==========*/
+    handleReceiveDataSuccess(data) {
         this._data = data;
         this.emit("change");
     }

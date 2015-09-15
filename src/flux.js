@@ -1,16 +1,69 @@
-let React   = require("react/addons");
-let Fluxxor = require("fluxxor");
-let stores  = require("./flux/stores");
-let actions = require("./flux/actions");
+'use strict';
 
-let flux    = new Fluxxor.Flux(stores, actions);
+var Fluxxor = require('fluxxor');
+var Q       = require('q');
+var _       = require('lodash');
 
-window.flux = flux;
+var Stores  = require('./flux/stores');
+var actions = require('./flux/actions');
 
-flux.setDispatchInterceptor((action, dispatch) => {
-    React.addons.batchedUpdates(() => {
-        dispatch(action);
+var Flux = function () {
+    var stores = {};
+
+    _.each(Stores, function (Store, name) {
+        if (_.isArray(Store)) {
+            stores[name] = new Store[0](Store[1]);
+        } else {
+            stores[name] = new Store();
+        }
     });
-});
 
+    Fluxxor.Flux.call(this, stores, actions);
+};
 
+Flux.prototype = Object.create(Fluxxor.Flux.prototype);
+
+Flux.prototype.fetchData = function (state) {
+    var flux = this;
+
+    return Q.all(
+        state.routes
+            .filter(function (route)  {
+                return route.handler.fetchData;
+            })
+            .reduce(
+                function (promises, route) {
+                    var promise = route.handler.fetchData(flux, state);
+
+                    if (_.isArray(promise)) {
+                        promises = promises.concat(promise);
+                    } else {
+                        promises.push(promise);
+                    }
+
+                    return promises;
+                },
+                []
+            )
+    );
+};
+
+Flux.prototype.fromObject = function (object) {
+    _.each(object, function (state, name) {
+        this.stores[name].fromObject(state);
+    }, this);
+
+    return this;
+};
+
+Flux.prototype.toObject = function () {
+    var data = {};
+
+    _.each(this.stores, function (store, name) {
+        data[name] = store.toObject();
+    });
+
+    return data;
+};
+
+module.exports = Flux;
