@@ -12,14 +12,13 @@ let RSVPStore = Fluxxor.createStore({
         this.init();
 
         this.bindActions(
-          C.SERVER.FETCH_DATA_SUCCESS, this.handleReceiveDataSuccess
+          C.GSHEETS.SUBMIT_FORM_SUCCESS, this.handleReceiveDataSuccess
         );
     },
 
-    /*==========  Getters  ==========*/
-    getData()
+    rsvpFormStatus()
     {
-        return JSON.parse(JSON.stringify(this._data));
+        console.log('status goes here');
     },
 
     /*==========  handlers  ==========*/

@@ -1,18 +1,27 @@
 import React from "react/addons";
 let { PureRenderMixin } = React.addons;
-import Fluxxor    from "fluxxor";
+import Fluxxor from "fluxxor";
 import InputGroup from "../components/form/input-group";
-import Page       from "../components/page/page";
+
+import Page    from "../components/page/page";
 
 let RSVPPage = React.createClass({
 
     mixins: [
         PureRenderMixin,
-        Fluxxor.FluxMixin(React)
+        Fluxxor.FluxMixin(React),
+        Fluxxor.StoreWatchMixin("rsvp")
     ],
 
-    SubmitForm()
+    getStateFromFlux() {
+        return {
+            rsvpFormStatus : this.getFlux().store("rsvp").rsvpFormStatus()
+        };
+    },
+
+    submitForm(event)
     {
+        event.preventDefault();
         this.getFlux().actions.rsvp.fetch(this.refs.rsvpForm.getDOMNode());
     },
 

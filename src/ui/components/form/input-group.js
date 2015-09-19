@@ -1,6 +1,7 @@
-import React from 'react';
-import Input from './input';
-import Label from './label';
+import React      from 'react';
+import Input      from './input';
+import Label      from './label';
+import classNames from 'classnames';
 
 let InputGroup = React.createClass({
 
@@ -71,10 +72,10 @@ let InputGroup = React.createClass({
             this.props.className
         ].join(' ').split();
 
-        let componentClasses = [
+        let inputClasses = [
             'input-group__input',
             this.props.componentClassName
-        ].join(' ').split();
+        ];
 
         return (
             <div className={classes}>
@@ -85,7 +86,7 @@ let InputGroup = React.createClass({
                 >
                     <Input
                         {...this.props}
-                        className   = {componentClasses}
+                        className   = {classNames(inputClasses)}
                         name        = {this.props.name}
                         id          = {this.props.name}
                         placeholder = {this.props.placeholder}

@@ -1,16 +1,15 @@
-import C      from "../constants";
-import google from "./rsvp-client";
+import C       from "../constants";
+import gsheets from "./rsvp-client";
 
 export default {
     fetch(query) {
         if (!query) {
-            this.dispatch(C.SERVER.FETCH_DATA_FAILURE, []);
+            this.dispatch(C.GSHEETS.SUBMIT_FORM_FAILURE, []);
         return [];
     }
 
-    return google.fetch(query).then(data => {
-        this.dispatch(C.SERVER.FETCH_DATA_SUCCESS, data.items);
-        return data;
+    return gsheets.fetch(query).then(() => {
+        this.dispatch(C.GSHEETS.SUBMIT_FORM_SUCCESS);
       });
     }
 };
