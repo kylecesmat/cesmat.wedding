@@ -1,37 +1,37 @@
 import React from "react/addons";
 let { PureRenderMixin } = React.addons;
-import Fluxxor from "fluxxor";
-
-import Page    from "../components/page/page";
+import Fluxxor    from "fluxxor";
+import InputGroup from "../components/form/input-group";
+import Page       from "../components/page/page";
 
 let RSVPPage = React.createClass({
 
     mixins: [
         PureRenderMixin,
-        Fluxxor.FluxMixin(React),
-        Fluxxor.StoreWatchMixin("RSVP")
+        Fluxxor.FluxMixin(React)
     ],
 
-    getStateFromFlux() {
-        return {
-          rsvp : this.getFlux().store("RSVP").getRepos()
-        };
-    },
-
-    componentDidMount() {
-        this.getFlux().actions.RSVP.fetch('React');
-    },
-
-    handleOnClick()
+    SubmitForm()
     {
-        this.getFlux().actions.RSVP.fetch('searchTerm');
-        console.log(this.state.rsvp);
+        this.getFlux().actions.rsvp.fetch(this.refs.rsvpForm.getDOMNode());
     },
 
     render() {
         return (
             <Page name='rsvp'>
-                <button onClick={this.handleOnClick}>Fire!</button>
+                <form ref='rsvpForm'>
+                    <InputGroup
+                        label       = 'First Name'
+                        placeholder = 'First Name'
+                        name        = 'fname'
+                    />
+                    <InputGroup
+                        label       = 'Last Name'
+                        placeholder = 'Last Name'
+                        name        = 'lname'
+                    />
+                    <button onClick={this.submitForm}>Fire!</button>
+                </form>
             </Page>
         );
     }

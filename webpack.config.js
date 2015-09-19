@@ -71,16 +71,18 @@ module.exports = {
     resolve    : {
         extensions : ['', '.js', '.jsx', '.css', '.scss'],
         alias      : {
-            actions        : path.resolve(__dirname, "/src/actions"),
-            api            : path.resolve(__dirname, "/src/api"),
-            components     : path.resolve(__dirname, "/src/components"),
-            pages          : path.resolve(__dirname, "/src/pages"),
-            stores         : path.resolve(__dirname, "/src/stores"),
-            EventConstants : path.resolve(__dirname, "/src/EventConstants.js")
+            components : path.resolve(__dirname, "/src/components"),
+            pages      : path.resolve(__dirname, "/src/pages"),
+            actions    : path.resolve(__dirname, "/src/flux/actions"),
+            stores     : path.resolve(__dirname, "/src/flux/stores"),
+            Constants  : path.resolve(__dirname, "/src/flux/constants.js")
         }
     },
     plugins : [
-      new webpack.NoErrorsPlugin()
+      new webpack.NoErrorsPlugin(),
+      new webpack.ProvidePlugin({
+        'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+      })
     ],
     postcss : function() {
         return [autoprefixer];

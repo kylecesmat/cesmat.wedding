@@ -1,5 +1,5 @@
-let RSVPStore  = require('./rsvp/rsvp-store');
+let rsvpStore  = require('./rsvp/rsvp-store');
 
 module.exports = {
-    RSVP : RSVPStore
+    rsvp : rsvpStore
 };

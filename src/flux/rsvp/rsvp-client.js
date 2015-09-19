@@ -1,12 +1,33 @@
 export default {
-    fetch(query) {
+    checkStatus(response) {
+        if (response.status >= 200 && response.status < 300) {
+        return response;
+        } else {
+        var error = new Error(response.statusText);
+        error.response = response;
+        throw error;
+        }
+    },
 
-    let host = "https://api.github.com/search/repositories";
-    return fetch(`${host}?q=${query}&sort=stars&order=desc`)
-        .then(response => {
-            return response.status === 200
-            ? response.json()
-            : Promise.reject();
+    parseJSON(response) {
+        return response.json();
+    },
+
+    fetch(form) {
+        let host = "https://script.google.com/macros/s/AKfycbzNwLRzFWgoOrVYzR7CUOulOLgXBSiAwMgwv8XK6c_L4LxH93Y/exec";
+
+        let formData = new FormData(form);
+
+        return fetch(host, {
+            method : 'post',
+            body   : formData
+        })
+        .then(this.checkStatus)
+        .then(this.parseJSON)
+        .then((data) => {
+            console.log('request succeeded with JSON response', data);
+        }).catch(function(error) {
+            console.log('request failed', error);
         });
     }
 };
