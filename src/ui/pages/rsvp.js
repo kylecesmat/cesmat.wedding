@@ -32,14 +32,29 @@ let RSVPPage = React.createClass({
                     <InputGroup
                         label       = 'First Name'
                         placeholder = 'First Name'
-                        name        = 'fname'
+                        name        = 'firstName'
                     />
                     <InputGroup
                         label       = 'Last Name'
                         placeholder = 'Last Name'
-                        name        = 'lname'
+                        name        = 'lastName'
                     />
-                    <button onClick={this.submitForm}>Fire!</button>
+                    <InputGroup
+                        label       = 'Bringing a Guest?'
+                        placeholder = 'Yes/No'
+                        name        = 'guest'
+                    />
+                    <InputGroup
+                        label       = 'First Name of Guest'
+                        placeholder = 'First Name'
+                        name        = 'guestFirstName'
+                    />
+                    <InputGroup
+                        label       = 'Last Name of Guest'
+                        placeholder = 'Last Name'
+                        name        = 'guestLastName'
+                    />
+                    <button onClick={this.submitForm}>Submit</button>
                 </form>
             </Page>
         );
