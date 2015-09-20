@@ -73,6 +73,7 @@ module.exports = {
         alias      : {
             components : path.resolve(__dirname, "/src/components"),
             pages      : path.resolve(__dirname, "/src/pages"),
+            images     : path.resolve(__dirname, "/src/assets/images"),
             actions    : path.resolve(__dirname, "/src/flux/actions"),
             stores     : path.resolve(__dirname, "/src/flux/stores"),
             Constants  : path.resolve(__dirname, "/src/flux/constants.js")

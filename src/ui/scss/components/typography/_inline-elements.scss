@@ -19,7 +19,7 @@
 
     &:hover,
     &:active {
-        text-decoration : underline;
+        text-decoration : none;
         color           : shade($primary, 10%);
         outline         : 0;
     }

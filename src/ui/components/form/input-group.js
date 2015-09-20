@@ -70,6 +70,10 @@ let InputGroup = React.createClass({
         return this.props.onBlur;
     },
 
+    setFocus()
+    {
+        this.refs.inputComponent.getDOMNode().focus();
+    },
 
     renderRequiredText()
     {
@@ -99,7 +103,7 @@ let InputGroup = React.createClass({
         ];
 
         return (
-            <div className={classes}>
+            <div className={classes} onClick={this.setFocus}>
                 <Label
                     className       = 'input-group__label'
                     htmlFor         = {this.props.name}
@@ -107,6 +111,7 @@ let InputGroup = React.createClass({
                 />
                 <Input
                     {...this.props}
+                    ref         = {'inputComponent'}
                     className   = {classNames(inputClasses)}
                     name        = {this.props.name}
                     id          = {this.props.name}

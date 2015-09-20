@@ -1,5 +1,5 @@
 import React     from "react";
-import MenuItems from "../../../util/menuItems";
+import MenuItems from "../../../json/menuItems";
 import MenuItem  from "./menu-item";
 import _         from 'lodash';
 

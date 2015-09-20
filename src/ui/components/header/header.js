@@ -1,6 +1,6 @@
 import React   from 'react';
 import {State} from "react-router";
-import Pages   from '../../../util/menuItems';
+import Pages   from '../../../json/menuItems';
 
 let Header = React.createClass({
     displayName : 'Header',
