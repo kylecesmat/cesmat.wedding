@@ -9,7 +9,7 @@ import RSVPPage     from "./ui/pages/rsvp";
 import RegistryPage from "./ui/pages/registry";
 
 export default (
-  <Route handler={AppLayout}>
+  <Route name="app" path="/" handler={AppLayout}>
     <Route name="home" path="/" handler={HomePage} />
     <Route name="venue" path="/venue" handler={VenuePage} />
     <Route name="registry" path="/registry" handler={RegistryPage} />

@@ -11,12 +11,18 @@ let Application = React.createClass({
 
     mixins : [State],
 
+    getInitialState() {
+        return {
+            routeName : null
+        };
+    },
+
     render() {
         return (
             <div className='app'>
                 <Header />
-                <Menu />
-                <RouteHandler key={name} {...this.props} />
+                <Menu handleRouteUpdate={this.updateRoute} />
+                <RouteHandler {...this.props} />
                 <Footer />
             </div>
         );

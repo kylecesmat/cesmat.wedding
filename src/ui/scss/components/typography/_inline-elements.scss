@@ -27,6 +27,17 @@
 }
 
 // inline modifiers
+
+.p {
+    display       : block;
+    font-family   : $sans;
+    color         : $gray--500;
+    padding       : rem-calc(5 0);
+    font-size     : 1rem;
+    line-height   : 1.2;
+    margin-bottom : rem-calc(10);
+}
+
 .b,
 .strong {
     font-weight : bold;

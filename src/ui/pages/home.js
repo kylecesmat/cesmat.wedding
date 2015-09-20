@@ -6,7 +6,7 @@ let HomePage = React.createClass({
     render() {
         return (
             <Page name='home'>
-                Homepage
+                <h1 className='h2 text-center'>We are getting married!</h1>
             </Page>
         );
     }

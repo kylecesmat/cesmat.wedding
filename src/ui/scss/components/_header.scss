@@ -8,7 +8,8 @@
     position   : relative;
     width      : 100%;
     overflow   : hidden;
-    max-height : rem-calc(300);
+    min-height : rem-calc(280);
+    max-height : rem-calc(280);
 
     img {
         max-width : 100%;

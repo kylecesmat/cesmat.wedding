@@ -51,6 +51,26 @@ let InputGroup = React.createClass({
         };
     },
 
+    getInitialState()
+    {
+        return {
+            isFocused : null
+        };
+    },
+
+    onFocus()
+    {
+        this.setState({isFocused : true});
+        return this.props.onFocus;
+    },
+
+    onBlur()
+    {
+        this.setState({isFocused : false});
+        return this.props.onBlur;
+    },
+
+
     renderRequiredText()
     {
         if (! this.props.requiredText) {
@@ -68,6 +88,7 @@ let InputGroup = React.createClass({
     {
         let classes = [
             'input-group',
+            this.state.isFocused ? 'input-group--focus' : null,
             this.props.value ? 'input-group--value' : null,
             this.props.className
         ].join(' ').split();
@@ -83,18 +104,19 @@ let InputGroup = React.createClass({
                     className       = 'input-group__label'
                     htmlFor         = {this.props.name}
                     text            = {this.props.label}
-                >
-                    <Input
-                        {...this.props}
-                        className   = {classNames(inputClasses)}
-                        name        = {this.props.name}
-                        id          = {this.props.name}
-                        placeholder = {this.props.placeholder}
-                        value       = {this.props.value}
-                        disabled    = {this.props.disabled}
-                        type        = {this.props.type}
-                    />
-                </Label>
+                />
+                <Input
+                    {...this.props}
+                    className   = {classNames(inputClasses)}
+                    name        = {this.props.name}
+                    id          = {this.props.name}
+                    placeholder = {this.props.placeholder}
+                    onFocus     = {this.onFocus}
+                    onBlur      = {this.onBlur}
+                    value       = {this.props.value}
+                    disabled    = {this.props.disabled}
+                    type        = {this.props.type}
+                />
             </div>
         );
     }

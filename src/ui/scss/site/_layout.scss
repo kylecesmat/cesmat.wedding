@@ -17,5 +17,19 @@
 }
 
 .page {
-    flex : 1 0 auto;
+    flex                : 1 0 auto;
+    animation           : 250ms page-loading ease;
+    animation-fill-mode : forwards;
+}
+
+@keyframes page-loading {
+    0% {
+        opacity   : 0.05;
+        transform : translateY(rem-calc(50));
+    }
+
+    100% {
+        opacity   : 1;
+        transform : translateY(0);
+    }
 }

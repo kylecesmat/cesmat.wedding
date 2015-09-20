@@ -6,7 +6,7 @@ let RegistryPage = React.createClass({
     render() {
         return (
             <Page name='registry'>
-                Registry
+                <h1 className='h2 text-center'>Where we're registered</h1>
             </Page>
         );
     }

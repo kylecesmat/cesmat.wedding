@@ -34,6 +34,7 @@ let Input = React.createClass({
 
         return (
             <input
+                {...this.props}
                 name        = {this.props.name}
                 className   = {classes}
                 type        = {this.props.type}

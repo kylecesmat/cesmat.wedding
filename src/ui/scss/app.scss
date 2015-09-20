@@ -12,16 +12,24 @@
 @import "./bourbon/functions/shade";
 @import "./bourbon/functions/tint";
 @import "./bourbon/css3/animation";
+@import "./bourbon/css3/placeholder";
 
 @import './colors';
 
 //site
+@import './site/global';
 @import './site/layout';
 
 // components
 @import './components/typography/fonts';
 @import './components/typography/headings';
 @import './components/typography/inline-elements';
+@import './components/form/inputs';
+@import './components/form/input-groups';
+@import './components/form/buttons';
 @import './components/header';
 @import './components/footer';
 @import './components/menu';
+
+//pages
+@import './pages/rsvp';
