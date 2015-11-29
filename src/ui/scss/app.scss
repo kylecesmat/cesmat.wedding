@@ -13,6 +13,8 @@
 @import "./bourbon/functions/tint";
 @import "./bourbon/css3/animation";
 @import "./bourbon/css3/placeholder";
+@import "./bourbon/addons/clearfix";
+@import "./bourbon/addons/timing-functions";
 
 @import './colors';
 
@@ -26,6 +28,7 @@
 @import './components/typography/inline-elements';
 @import './components/form/inputs';
 @import './components/form/input-groups';
+@import './components/form/radio-inputs';
 @import './components/form/buttons';
 @import './components/header';
 @import './components/footer';

@@ -7,7 +7,7 @@ let Footer = React.createClass({
         return (
             <div className='footer'>
                 <div className='footer__content'>
-                    Kyle &amp; Taylor - <i>March 18th 2016</i>
+                    Kyle &amp; Taylor - <i>March 19th 2016</i>
                 </div>
             </div>
         );

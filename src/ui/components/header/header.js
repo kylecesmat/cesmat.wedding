@@ -14,22 +14,19 @@ let Header = React.createClass({
 
     render() {
         let currentPage = this.getCurrentPage();
-        let Image;
+        let imageURL;
         let Heading;
 
         Pages.map((page) => {
             if(page.route === currentPage) {
-                Image   = page.image;
-                Heading = page.heading;
+                imageURL = page.image;
+                Heading  = page.heading;
             }
         });
 
         return (
-            <div className='header'>
+            <div className='header' style={{backgroundImage:'url(\'' + imageURL + '\')'}}>
                 <h1 className='h1 header__message'>{Heading}</h1>
-                <div className='header__image'>
-                    <img src={Image} />
-                </div>
             </div>
         );
     }

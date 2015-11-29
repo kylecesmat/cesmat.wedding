@@ -8,13 +8,9 @@
     position   : relative;
     width      : 100%;
     overflow   : hidden;
-    min-height : rem-calc(280);
-    max-height : rem-calc(280);
-
-    img {
-        max-width : 100%;
-        height    : auto;
-    }
+    min-height : 70vh;
+    background-position : center;
+    background-size : cover;
 }
 
 .header__message {

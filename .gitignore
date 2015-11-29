@@ -1,5 +1,5 @@
 logs
 *.log
 node_modules
-public/static/build
+public/
 npm_debug
