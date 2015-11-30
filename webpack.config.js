@@ -21,7 +21,7 @@ module.exports = {
     entry : config.entry,
 
     output: {
-        path       : path.resolve(__dirname, "public/js/"),
+        path       : path.resolve(__dirname, "dist/js/"),
         filename   : "main.js",
         publicPath : "js/"
     },
@@ -31,7 +31,7 @@ module.exports = {
         {
             test    : /\.jsx?$/,
             loader  : "eslint-loader",
-            exclude : [/node_modules/, /public/]
+            exclude : [/node_modules/, /dist/]
         }
     ],
     loaders: [
@@ -66,7 +66,7 @@ module.exports = {
         {
             test   : /\.jsx?$/,
             loader : config.jsxLoaders,
-            exclude: [/node_modules/, /public/]
+            exclude: [/node_modules/, /dist/]
         },
         {
             test   : /\.json$/,
