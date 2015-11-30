@@ -9,4 +9,4 @@
 1. Run `npm run dist`
 
 ### Deploy
-`git subtree push --prefix dist origin gh-pages`
+`git subtree push --prefix public origin gh-pages`

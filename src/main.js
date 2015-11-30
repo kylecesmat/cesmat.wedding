@@ -18,7 +18,7 @@ flux.dispatcher.dispatch = action => new BatchedUpdates(() => {
 
 // mount app
 document.addEventListener("DOMContentLoaded", () => {
-    Router.run(routes, Handler => {
+    Router.run(routes, Router.HistoryLocation, Handler => {
         React.render(<Handler flux={flux} />, document.body);
     });
 });
