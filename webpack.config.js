@@ -12,7 +12,10 @@ var config       = {
 };
 
 if (environment !== 'production') {
-    config.entry.unshift('webpack/hot/dev-server');
+    config.entry = [
+        'webpack/hot/dev-server',
+        './src/main.js'
+    ];
     config.jsxLoaders = 'react-hot!babel';
 };
 
@@ -21,7 +24,7 @@ module.exports = {
     entry : config.entry,
 
     output: {
-        path       : path.resolve(__dirname, "dist/js/"),
+        path       : path.resolve(__dirname, "public/js/"),
         filename   : "main.js",
         publicPath : "js/"
     },
@@ -31,7 +34,7 @@ module.exports = {
         {
             test    : /\.jsx?$/,
             loader  : "eslint-loader",
-            exclude : [/node_modules/, /dist/]
+            exclude : [/node_modules/, /public/]
         }
     ],
     loaders: [
@@ -66,7 +69,7 @@ module.exports = {
         {
             test   : /\.jsx?$/,
             loader : config.jsxLoaders,
-            exclude: [/node_modules/, /dist/]
+            exclude: [/node_modules/, /public/]
         },
         {
             test   : /\.json$/,
