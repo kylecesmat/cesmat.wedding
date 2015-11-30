@@ -8,8 +8,9 @@
     "url": "http://kylecesmat.com"
   },
   "scripts": {
-    "dist": "APP_ENV=production webpack -p",
-    "start": "webpack-dev-server -d --debug --devtool eval-source-map --output-pathinfo --watch --colors --inline --hot --content-base public --port 9001"
+    "build": "APP_ENV=production webpack -p",
+    "dev": "webpack-dev-server -d --debug --devtool eval-source-map --output-pathinfo --watch --colors --inline --hot --content-base public --port 9001",
+    "deploy": "git subtree push --prefix public origin gh-pages"
   },
   "dependencies": {
     "classnames": "2.1.3",

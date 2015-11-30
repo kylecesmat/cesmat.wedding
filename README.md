@@ -2,11 +2,12 @@
 ============
 
 ### Develop
-1. Run `npm start`
+1. Run `npm run dev`
 2. Open `http://localhost:9001`
 
 ### Build
-1. Run `npm run dist`
+1. Run `npm run build`
 
 ### Deploy
-`git subtree push --prefix public origin gh-pages`
+1. Run `npm run build`
+2. Run `npm run deploy`
