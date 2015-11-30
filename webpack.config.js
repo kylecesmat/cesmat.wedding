@@ -1,18 +1,24 @@
 var webpack      = require('webpack');
 var path         = require('path');
 var npmPath      = path.resolve(__dirname, 'node_modules');
+var environment  = (process.env.APP_ENV || 'development');
 var autoprefixer = require('autoprefixer');
 var config       = {
+    entry : ['./src/main.js'],
     sassOptions  : (
         '?outputStyle=nested&includePaths[]=' + npmPath
-    )
+    ),
+    jsxLoaders : 'babel',
 };
 
+if (environment !== 'production') {
+    config.entry.unshift('webpack/hot/dev-server');
+    config.jsxLoaders = 'react-hot!babel';
+};
+
+
 module.exports = {
-    entry : [
-      'webpack/hot/dev-server',
-      './src/main.js'
-    ],
+    entry : config.entry,
 
     output: {
         path       : path.resolve(__dirname, "public/js/"),
@@ -59,7 +65,8 @@ module.exports = {
             loader : "url-loader?limit=1" },
         {
             test   : /\.jsx?$/,
-            loader : "react-hot!babel", exclude: [/node_modules/, /public/]
+            loader : config.jsxLoaders,
+            exclude: [/node_modules/, /public/]
         },
         {
             test   : /\.json$/,
@@ -67,7 +74,6 @@ module.exports = {
         }
     ]
     },
-
     resolve    : {
         extensions : ['', '.js', '.jsx', '.css', '.scss'],
         alias      : {
