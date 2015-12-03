@@ -36,6 +36,11 @@
     font-size     : 1rem;
     line-height   : 1.2;
     margin-bottom : rem-calc(10);
+
+    &.super-hip {
+        max-width : rem-calc(500);
+        margin    : 0 auto;
+    }
 }
 
 .b,
