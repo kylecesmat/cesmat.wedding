@@ -20,6 +20,7 @@
     flex : 1 0 auto;
 
     .container {
+        min-height          : rem-calc(300);
         animation           : 250ms page-loading ease;
         animation-fill-mode : forwards;
     }
