@@ -1,7 +1,7 @@
 var webpack      = require('webpack');
+var environment  = (process.env.APP_ENV || 'development');
 var path         = require('path');
 var npmPath      = path.resolve(__dirname, 'node_modules');
-var environment  = (process.env.APP_ENV || 'development');
 var autoprefixer = require('autoprefixer');
 var config       = {
     entry : ['./src/main.js'],
@@ -18,7 +18,6 @@ if (environment !== 'production') {
     ];
     config.jsxLoaders = 'react-hot!babel';
 };
-
 
 module.exports = {
     entry : config.entry,
