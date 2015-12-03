@@ -14,7 +14,7 @@ let RegistryPage = React.createClass({
             let Image = require('../../assets/images/' +  item.image);
 
             return (
-                <div className='xsmall-6 small-3 columns' key={index}>
+                <div className='xsmall-12 small-3 columns' key={index}>
                     <a className='a registry__item' href={item.url} target='_blank'><img src={Image} />
                         <span className='registry__item__label'>{item.name}</span>
                     </a>

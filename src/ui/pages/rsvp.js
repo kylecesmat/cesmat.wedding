@@ -49,7 +49,7 @@ let RSVPPage = React.createClass({
     {
         return (
             <div className='row rsvp__guest-select'>
-                <div className='small-6 columns'>
+                <div className='xsmall-6 columns'>
                     <RadioButton
                         id       = {'attendanceTrue'}
                         text     = {'I\'ll be there!'}
@@ -59,7 +59,7 @@ let RSVPPage = React.createClass({
                         onChange = {_.partial(this.handleShowAttendance, true)}
                     />
                 </div>
-                <div className='small-6 columns'>
+                <div className='xsmall-6 columns'>
                     <RadioButton
                         id       = {'attendanceFalse'}
                         text     = {'I can\'t make it'}
@@ -77,7 +77,7 @@ let RSVPPage = React.createClass({
     {
         return (
             <div className='row rsvp__guest-select'>
-                <div className='small-6 columns'>
+                <div className='xsmall-12 small-6 columns'>
                     <RadioButton
                         id       = {'guestFalse'}
                         text     = {'I\'m not bringing a guest'}
@@ -87,7 +87,7 @@ let RSVPPage = React.createClass({
                         onChange = {_.partial(this.handleShowGuests, false)}
                     />
                 </div>
-                <div className='small-6 columns'>
+                <div className='xsmall-12 small-6 columns'>
                     <RadioButton
                         id       = {'guestTrue'}
                         text     = {'I\'m bringing a guest(s)'}
