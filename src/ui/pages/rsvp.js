@@ -17,13 +17,15 @@ let RSVPPage = React.createClass({
 
     getInitialState() {
         return {
-            showGuest : false
+            showGuest      : false,
+            showAttendance : true
         };
     },
 
     getStateFromFlux() {
         return {
-            rsvpFormStatus : this.getFlux().store("rsvp").rsvpFormStatus()
+            dataSubmitting : this.getFlux().store("rsvp").isDataSubmitting(),
+            dataSuccess    : this.getFlux().store("rsvp").isDataSuccess()
         };
     },
 
@@ -38,26 +40,59 @@ let RSVPPage = React.createClass({
         this.setState({showGuest : value});
     },
 
+    handleShowAttendance(value)
+    {
+        this.setState({showAttendance : value});
+    },
+
+    renderAttendanceButtons()
+    {
+        return (
+            <div className='row rsvp__guest-select'>
+                <div className='small-6 columns'>
+                    <RadioButton
+                        id       = {'attendanceTrue'}
+                        text     = {'I\'ll be there!'}
+                        key      = {'attendanceTrue'}
+                        name     = {'attendanceTrue'}
+                        checked  = {this.state.showAttendance}
+                        onChange = {_.partial(this.handleShowAttendance, true)}
+                    />
+                </div>
+                <div className='small-6 columns'>
+                    <RadioButton
+                        id       = {'attendanceFalse'}
+                        text     = {'I can\'t make it'}
+                        key      = {'attendanceFalse'}
+                        name     = {'attendanceFalse'}
+                        checked  = {! this.state.showAttendance}
+                        onChange = {_.partial(this.handleShowAttendance, false)}
+                    />
+                </div>
+            </div>
+        );
+    },
+
     renderGuestButtons()
     {
         return (
             <div className='row rsvp__guest-select'>
                 <div className='small-6 columns'>
                     <RadioButton
-                        id       = {'guest--false'}
+                        id       = {'guestFalse'}
                         text     = {'I\'m not bringing a guest'}
-                        key      = {'guest--false'}
-                        name     = {'guest--false'}
+                        key      = {'guestFalse'}
+                        name     = {'guestFalse'}
                         checked  = {! this.state.showGuest}
                         onChange = {_.partial(this.handleShowGuests, false)}
                     />
                 </div>
                 <div className='small-6 columns'>
                     <RadioButton
-                        id       = {'guest--true'}
-                        text     = {'I\'m bringing a guest'}
-                        key      = {'guest--true'}
-                        name     = {'guest--true'}
+                        id       = {'guestTrue'}
+                        text     = {'I\'m bringing a guest(s)'}
+                        key      = {'guestTrue'}
+                        name     = {'guestTrue'}
                         checked  = {this.state.showGuest}
                         onChange = {_.partial(this.handleShowGuests, true)}
                     />
@@ -75,25 +110,27 @@ let RSVPPage = React.createClass({
         return (
             <div className='rsvp__guest-information'>
                 <InputGroup
-                    label       = 'First Name of Guest'
-                    placeholder = 'First Name'
-                    name        = 'guestFirstName'
-                />
-                <InputGroup
-                    label       = 'Last Name of Guest'
-                    placeholder = 'Last Name'
-                    name        = 'guestLastName'
+                    label       = 'Name of Guest(s)'
+                    placeholder = 'Name of Guest(s)'
+                    name        = 'guestName'
                 />
             </div>
         );
     },
 
     render() {
+        let successMessage = (
+            <div className='rsvp__success'>
+                <span className='rsvp__success__message'>Thanks for your response!</span>
+            </div>
+        );
+
         return (
             <Page name='rsvp'>
                 <h1 className='h2 text-center'>Join us for a night of celebration</h1>
                 <form className='rsvp__form' ref='rsvpForm'>
-                    <span className='p'>Ceremony begins at 5:45PM, with a reception to follow. If a guest was included with your invitation, indicate their name below.</span>
+                    <span className='p text-center'>Ceremony begins at 5:45PM, with a reception to follow. If a guest was included with your invitation, indicate their name(s) below.</span>
+                    {this.state.dataSuccess ? successMessage : null}
                     <InputGroup
                         label       = 'First Name'
                         placeholder = 'First Name'
@@ -104,12 +141,14 @@ let RSVPPage = React.createClass({
                         placeholder = 'Last Name'
                         name        = 'lastName'
                     />
-                    {this.renderGuestButtons()}
-                    {this.renderGuestName()}
+                    {this.renderAttendanceButtons()}
+                    {this.state.showAttendance ? this.renderGuestButtons() : null}
+                    {this.state.showAttendance ? this.renderGuestName() : null}
                     <Button
-                        onClick={this.submitForm}
+                        disabled = {this.state.dataSubmitting}
+                        onClick  = {this.submitForm}
                     >
-                        Submit your RSVP!
+                        {this.state.dataSubmitting ? 'Submitting...' : 'Submit your RSVP!'}
                     </Button>
                 </form>
             </Page>

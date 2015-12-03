@@ -3,6 +3,7 @@ import gsheets from "./rsvp-client";
 
 export default {
     fetch(query) {
+        this.dispatch(C.GSHEETS.SUBMIT_FORM_SUBMITTING);
         if (!query) {
             this.dispatch(C.GSHEETS.SUBMIT_FORM_FAILURE, []);
         return [];

@@ -3,3 +3,15 @@
     margin    : 0 auto rem-calc(40);
     max-width : rem-calc(480);
 }
+
+.rsvp__success {
+    display          : block;
+    margin           : rem-calc(20) auto;
+    padding          : rem-calc(8);
+    background-color : rgba($primary, .5);
+}
+
+.rsvp__success__message {
+    color : $primary;
+    font-family : $sans;
+}
