@@ -1,4 +1,5 @@
 import React from "react";
+import Menu from '../menu/menu';
 
 let Page = React.createClass({
     propTypes : {
@@ -13,6 +14,7 @@ let Page = React.createClass({
 
         return (
             <div className={classes}>
+                <Menu/>
                 <div className='container'>
                     {this.props.children}
                 </div>

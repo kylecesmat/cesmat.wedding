@@ -17,9 +17,13 @@
 }
 
 .page {
-    flex                : 1 0 auto;
-    animation           : 250ms page-loading ease;
-    animation-fill-mode : forwards;
+    flex : 1 0 auto;
+
+    .container {
+        animation           : 250ms page-loading ease;
+        animation-fill-mode : forwards;
+    }
+
 }
 
 @keyframes page-loading {

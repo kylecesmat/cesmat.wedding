@@ -1,6 +1,5 @@
 import React                  from "react";
 import { RouteHandler, State} from "react-router";
-import Menu                   from "../components/menu/menu";
 import Header                 from "../components/header/header";
 import Footer                 from "../components/footer/footer";
 
@@ -21,7 +20,6 @@ let Application = React.createClass({
         return (
             <div className='app'>
                 <Header />
-                <Menu handleRouteUpdate={this.updateRoute} />
                 <RouteHandler {...this.props} />
                 <Footer />
             </div>

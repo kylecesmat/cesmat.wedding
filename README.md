@@ -10,4 +10,5 @@
 
 ### Deploy
 1. Run `npm run build`
-2. Run `npm run deploy`
+2. Commit & push changes
+3. Run `npm run deploy`
